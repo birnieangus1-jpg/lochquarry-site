@@ -245,3 +245,10 @@ footer {
 .hidden {
   display: none;
 }
+
+.site-logo {
+  display: block;
+  margin: 20px auto;
+  height: 70px;
+  width: auto;
+}
