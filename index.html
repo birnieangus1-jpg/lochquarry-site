@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lochquarry Outdoor Centre</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- MapLibre -->
+  <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+  <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+
+  <style>
+    /* LOCATION PICKER CSS */
+    .location-picker {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .location-picker__search { margin-bottom: 15px; }
+    .location-picker__search-inner { position: relative; }
+
+    .location-picker__input {
+      width: 100%;
+      padding: 10px 36px 10px 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .location-picker__spinner {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 2px solid rgba(0,0,0,0.15);
+      border-top-color: #6b46c1;
+      transform: translateY(-50%);
+      animation: lp-spin 0.7s linear infinite;
+    }
+
+    @keyframes lp-spin { to { transform: translateY(-50%) rotate(360deg); } }
+
+    .location-picker__suggestions {
+      margin-top: 6px;
+      list-style: none;
+      padding: 0;
+      max-height: 200px;
+      overflow-y: auto;
+      background: #ffffff;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+
+    .location-picker__suggestions li { border-bottom: 1px solid #eee; }
+    .location-picker__suggestions li:last-child { border-bottom: none; }
+
+    .location-picker__suggestion {
+      width: 100%;
+      text-align: left;
+      padding: 8px 10px;
+      font-size: 12px;
+      border: none;
+      background: white;
+      cursor: pointer;
+    }
+
+    .location-picker__suggestion:hover { background: #f5f5f5; }
+
+    .location-picker__map {
+      height: 400px;
+      margin-top: 10px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    #lp-map { width: 100%; height: 100%; }
+
+    .location-picker__meta {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .hidden { display: none; }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="assets/logo.png" alt="Lochquarry Outdoor Centre Logo" />
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="search.html">Search</a>
+    <a href="login.html">Account</a>
+    <a href="admin-dashboard.html">Admin</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Adventure Starts at Lochquarry</h1>
+    <p>Scotland’s home for outdoor activities, nature, and unforgettable experiences.</p>
+    <a class="btn" href="services.html">Explore Activities</a>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <h2 class="section-title">Scenes from Lochquarry</h2>
+  <div class="gallery-grid">
+    <img src="assets/cow.jpg" alt="Cow near Lochquarry" />
+    <img src="assets/corrie.png" alt="Corrie landscape" />
+    <img src="assets/forest.png" alt="Lochquarry forest" />
+  </div>
+</section>
+
+<div class="container">
+  <h2 class="section-title">What We Offer</h2>
+  <div class="grid-3">
+    <div class="card">
+      <h3>Outdoor Activities</h3>
+      <p>Kayaking, climbing, archery, survival skills and more — suitable for all ages.</p>
+    </div>
+    <div class="card">
+      <h3>Expert Instructors</h3>
+      <p>Our trained staff ensure every adventure is safe, fun, and unforgettable.</p>
+    </div>
+    <div class="card">
+      <h3>Beautiful Location</h3>
+      <p>Set in the heart of Scotland, surrounded by forests, lakes, and wildlife.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Popular Activities</h2>
+  <div class="grid-3">
+    <div class="card">
+      <h3>Kayaking</h3>
+      <p>Paddle across Lochquarry’s calm waters with guidance from our instructors.</p>
+      <a class="link-btn" href="services.html">Learn More</a>
+    </div>
+    <div class="card">
+      <h3>Rock Climbing</h3>
+      <p>Challenge yourself on our natural rock faces and climbing walls.</p>
+      <a class="link-btn" href="services.html">Learn More</a>
+    </div>
+    <div class="card">
+      <h3>Survival Skills</h3>
+      <p>Build shelters, start fires, and learn essential outdoor techniques.</p>
+      <a class="link-btn" href="services.html">Learn More</a>
+    </div>
+  </div>
+
+  <h2 class="section-title">Why Choose Lochquarry?</h2>
+  <ul class="benefits">
+    <li>✔ Safe, supervised activities for all ages</li>
+    <li>✔ Affordable pricing and group discounts</li>
+    <li>✔ Experienced instructors and friendly staff</li>
+    <li>✔ Stunning natural scenery and wildlife</li>
+    <li>✔ Perfect for families, schools, and corporate groups</li>
+  </ul>
+
+  <section class="cta">
+    <h2>Ready for Your Next Adventure?</h2>
+    <p>Book your visit today and discover the thrill of Lochquarry.</p>
+    <a class="btn" href="contact.html">Contact Us</a>
+  </section>
+</div>
+
+<!-- LOCATION PICKER -->
+<section id="location-picker-section" class="location-picker">
+  <h2 class="section-title">Find Lochquarry</h2>
+
+  <div class="location-picker__search">
+    <div class="location-picker__search-inner">
+      <input id="lp-search" type="text" placeholder="Search or click map..." class="location-picker__input" />
+      <div id="lp-loading" class="location-picker__spinner hidden"></div>
+    </div>
+    <ul id="lp-suggestions" class="location-picker__suggestions hidden"></ul>
+  </div>
+
+  <div class="location-picker__map">
+    <div id="lp-map"></div>
+  </div>
+
+  <div class="location-picker__meta">
+    <p>Mode: <span id="lp-mode-label">Globe satellite</span></p>
+    <p>Selected coordinates: <span id="lp-coords">56.200000, -4.600000</span></p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Lochquarry Outdoor Centre — Adventure Awaits</p>
+</footer>
+
+<!-- LOCATION PICKER SCRIPT -->
+<script>
+/* ------------------------------
+   CONFIG
+------------------------------ */
+const GEOCODE_BASE_URL = "https://nominatim.openstreetmap.org";
+const SWITCH_ZOOM = 13.5;
+
+const GLOBE_PITCH = 40;
+const MERCATOR_PITCH = 60;
+const MERCATOR_BEARING = 20;
+
+/* Hidden vector style ONLY for marker sprite */
+const VECTOR_SPRITE_STYLE = "https://demotiles.maplibre.org/style.json";
+
+/* Satellite for both modes */
+const SATELLITE_STYLE = {
+  version: 8,
+  sources: {
+    satellite: {
+      type: "raster",
+      tiles: [
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+      ],
+      tileSize: 256,
+      attribution: "Tiles © Esri"
+    }
+  },
+  layers: [
+    { id: "satellite-layer", type: "raster", source: "satellite" }
+  ]
+};
+
+let lpMap;
+let lpMarker = null;
+let lpLastMode = null;
+let lpSearchTimer = null;
+
+const lpSearch = document.getElementById("lp-search");
+const lpSuggestions = document.getElementById("lp-suggestions");
+const lpLoading = document.getElementById("lp-loading");
+const lpModeLabel = document.getElementById("lp-mode-label");
+const lpCoords = document.getElementById("lp-coords");
+
+/* ------------------------------
+   MARKER (original sprite)
+------------------------------ */
+function setMarker(lon, lat) {
+  if (lpMarker) lpMarker.remove();
+
+  lpMarker = new maplibregl.Marker({ color: "#a479ff" })
+    .setLngLat([lon, lat])
+    .addTo(lpMap);
+
+  lpCoords.textContent = `${lat.toFixed(6)}, ${lon.toFixed(6)}`;
+}
+
+/* ------------------------------
+   MODE SWITCHING
+------------------------------ */
+function getModeForZoom(zoom) {
+  return zoom < SWITCH_ZOOM ? "globe" : "mercator";
+}
+
+function applyMode(zoom) {
+  const nextMode = getModeForZoom(zoom);
+  if (lpLastMode === nextMode) return;
+  lpLastMode = nextMode;
+
+  lpMap.setStyle(SATELLITE_STYLE, { diff: false });
+
+  lpMap.once("styledata", () => {
+    lpMap.setProjection({ type: nextMode });
+    lpMap.easeTo({
+      pitch: nextMode === "globe" ? GLOBE_PITCH : MERCATOR_PITCH,
+      bearing: nextMode === "globe" ? 0 : MERCATOR_BEARING,
+      duration: 0,
+      essential: true
+    });
+  });
+
+  lpModeLabel.textContent =
+    nextMode === "globe" ? "Globe satellite" : "Mercator satellite";
+}
+
+/* ------------------------------
+   SEARCH + AUTOCOMPLETE
+------------------------------ */
+function handleSelectPlace(lon, lat, displayName) {
+  const parsedLon = parseFloat(lon);
+  const parsedLat = parseFloat(lat);
+
+  lpSearch.value = displayName;
+  lpSuggestions.classList.add("hidden");
+
+  setMarker(parsedLon, parsedLat);
+  flyToLocation(parsedLon, parsedLat, 16);
+}
+
+function setupSearch() {
+  lpSearch.addEventListener("input", () => {
+    clearTimeout(lpSearchTimer);
+
+    const query = lpSearch.value.trim();
+    if (query.length <= 2) {
+      lpSuggestions.innerHTML = "";
+      lpSuggestions.classList.add("hidden");
+      return;
+    }
+
+    lpSearchTimer = setTimeout(() => {
+      lpLoading.classList.remove("hidden");
+
+      const url = `${GEOCODE_BASE_URL}/search?format=jsonv2&q=${encodeURIComponent(query)}&limit=5`;
+
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          lpSuggestions.innerHTML = "";
+          data.forEach(item => {
+            const li = document.createElement("li");
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "location-picker__suggestion";
+            btn.textContent = item.display_name;
+            btn.onclick = () => handleSelectPlace(item.lon, item.lat, item.display_name);
+            li.appendChild(btn);
+            lpSuggestions.appendChild(li);
+          });
+
+          lpSuggestions.classList.remove("hidden");
+        })
+        .finally(() => lpLoading.classList.add("hidden"));
+    }, 300);
+  });
+}
+
+/* ------------------------------
+   MAP CLICK
+------------------------------ */
+function handleMapClick(e) {
+  const { lng, lat } = e.lngLat;
+
+  setMarker(lng, lat);
+  flyToLocation(lng, lat, Math.max(lpMap.getZoom(), 15));
+
+  lpLoading.classList.remove("hidden");
+
+  const url = `${GEOCODE_BASE_URL}/reverse?format=jsonv2&lat=${lat}&lon=${lng}`;
+
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      lpSearch.value = data.display_name || "Location not found";
+      lpSuggestions.classList.add("hidden");
+    })
+    .finally(() => lpLoading.classList.add("hidden"));
+}
+
+/* ------------------------------
+   FLY TO
+------------------------------ */
+function flyToLocation(lon, lat, zoom) {
+  const mode = getModeForZoom(zoom);
+
+  lpMap.flyTo({
+    center: [lon, lat],
+    zoom,
+    pitch: mode === "globe" ? GLOBE_PITCH : MERCATOR_PITCH,
+    bearing: mode === "globe" ? 0 : MERCATOR_BEARING,
+    essential: true
+  });
+}
+
+/* ------------------------------
+   INIT
+------------------------------ */
+document.addEventListener("DOMContentLoaded", () => {
+  const initialLon = -4.6;
+  const initialLat = 56.2;
+  const initialZoom = 14;
+
+  /* Load hidden vector style first to load sprite sheet */
+  const spriteLoader = new maplibregl.Map({
+    container: document.createElement("div"),
+    style: VECTOR_SPRITE_STYLE,
+    center: [0, 0],
+    zoom: 1
+  });
+
+  spriteLoader.on("load", () => {
+    spriteLoader.remove();
+
+    lpMap = new maplibregl.Map({
+      container: "lp-map",
+      style: SATELLITE_STYLE,
+      center: [initialLon, initialLat],
+      zoom: initialZoom,
+      pitch: GLOBE_PITCH,
+      bearing: 0,
+      maxZoom: 19,
+      minZoom: 1
+    });
+
+    lpMap.addControl(new maplibregl.NavigationControl(), "top-right");
+
+    lpMap.on("load", () => {
+      lpLastMode = null;
+      applyMode(lpMap.getZoom());
+      setMarker(initialLon, initialLat);
+    });
+
+    lpMap.on("moveend", () => applyMode(lpMap.getZoom()));
+    lpMap.on("click", handleMapClick);
+
+    setupSearch();
+  });
+});
+</script>
+
+</body>
+</html>

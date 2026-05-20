@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard – Lochquarry</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+
+<body>
+
+<div class="admin-container">
+
+  <!-- SIDEBAR -->
+  <aside class="admin-sidebar">
+    <h2>Admin</h2>
+    <nav>
+      <button class="nav-btn active" data-section="dashboard">Dashboard</button>
+      <button class="nav-btn" data-section="activities">Activities</button>
+      <button class="nav-btn" data-section="users">Users</button>
+      <button class="nav-btn" data-section="site">Site Settings</button>
+      <button class="nav-btn" data-section="map">Map Settings</button>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="admin-main">
+
+    <!-- TOP BAR -->
+    <div class="admin-topbar">Dashboard</div>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="admin-section active">
+      <h1>Welcome, Admin</h1>
+      <div class="admin-grid">
+        <div class="admin-card">
+          <h3>Total Activities</h3>
+          <p id="count-activities">3</p>
+        </div>
+        <div class="admin-card">
+          <h3>Total Users</h3>
+          <p id="count-users">12</p>
+        </div>
+        <div class="admin-card">
+          <h3>Pending Bookings</h3>
+          <p>4</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section id="activities" class="admin-section">
+      <h1>Manage Activities</h1>
+
+      <div class="admin-form">
+        <input id="activity-name" type="text" placeholder="Activity name" />
+        <textarea id="activity-desc" placeholder="Description"></textarea>
+        <button id="add-activity">Add Activity</button>
+      </div>
+
+      <ul id="activity-list"></ul>
+    </section>
+
+    <!-- USERS -->
+    <section id="users" class="admin-section">
+      <h1>Manage Users</h1>
+      <ul id="user-list"></ul>
+    </section>
+
+    <!-- SITE SETTINGS -->
+    <section id="site" class="admin-section">
+      <h1>Site Settings</h1>
+
+      <div class="admin-form">
+        <label>Homepage Title</label>
+        <input id="site-title" type="text" value="Adventure Starts at Lochquarry" />
+
+        <label>Homepage Subtitle</label>
+        <input id="site-subtitle" type="text" value="Scotland’s home for outdoor activities." />
+
+        <button id="save-site">Save Settings</button>
+      </div>
+    </section>
+
+    <!-- MAP SETTINGS -->
+    <section id="map" class="admin-section">
+      <h1>Map Settings</h1>
+
+      <div class="admin-form">
+        <label>Default Latitude</label>
+        <input id="map-lat" type="number" value="56.2" />
+
+        <label>Default Longitude</label>
+        <input id="map-lon" type="number" value="-4.6" />
+
+        <label>Default Zoom</label>
+        <input id="map-zoom" type="number" value="14" />
+
+        <button id="save-map">Save Map Settings</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/admin.js"></script>
+
+</body>
+</html>
