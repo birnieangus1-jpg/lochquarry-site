@@ -246,7 +246,7 @@ footer {
   display: none;
 }
 
-.site-logo {
+img[src*="logo.png"] {
   display: block;
   margin: 20px auto;
   height: 70px;
