@@ -252,3 +252,16 @@ img[src*="logo.png"] {
   height: 70px;
   width: auto;
 }
+.back-link {
+  margin: 20px 0;
+}
+
+.back-link a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #0055aa;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+}
