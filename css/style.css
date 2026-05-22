@@ -246,7 +246,7 @@ footer {
   display: none;
 }
 
-img[src*="logo.png"] {
+img[src*="logo-green.png"] {
   display: block;
   margin: 20px auto;
   height: 70px;
@@ -264,4 +264,9 @@ img[src*="logo.png"] {
 
 .back-link a:hover {
   text-decoration: underline;
+}
+header img {
+  background-color: #0a7a2a; /* exact Lochquarry green */
+  padding: 10px;
+  border-radius: 6px;
 }

@@ -42,8 +42,8 @@ function getCurrentUser() {
     return users.find(u => u.email === email);
 }
 
-// Logout
-function logout() {
+// logo-greenut
+function logo-greenut() {
     localStorage.removeItem("loggedInUser");
     alert("Logged out.");
     window.location.href = "login.html";
