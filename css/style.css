@@ -266,7 +266,7 @@ img[src*="logo-green.png"] {
   text-decoration: underline;
 }
 header img {
-  background-color: #0a7a2a; /* exact Lochquarry green */
+  background-color: #1a3d2f; /* match site header green */
   padding: 10px;
   border-radius: 6px;
 }
